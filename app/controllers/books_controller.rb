@@ -1,11 +1,8 @@
-class UsersController < ApplicationController
-  def top
-  end
-
+class BooksController < ApplicationController
   def index
   end
 
-  def about
+  def create
   end
 
   def show
@@ -15,5 +12,8 @@ class UsersController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
   end
 end
