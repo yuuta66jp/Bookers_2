@@ -1,0 +1,45 @@
+<div class="col-xs-3">
+
+<h2>User info</h2>
+<table class='table'>
+
+    <% if current_user.profile_image.nil? %>
+      <%= image_tag('no_image.jpg') %>
+      <% end %>
+      <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100  %>
+      <tbody><tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= @user2.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= @user2.name %></th>
+      </tr>
+</tbody></table>
+
+<div class="row">
+  <%= link_to "", edit_user_path(current_user) ,class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_5739" %>
+</div>
+
+    <h2>New book</h2>
+    <%= form_for(@book,html:{class:"new_book",id:"new_book"}) do |f| %>
+
+
+  <div class="field row">
+    <label for="book_title">Title</label>
+    <%= f.text_field :title, class:"col-xs-12 book_title",id:"book_title",name:"book[title]" %>
+  </div>
+
+  <div class="field row">
+    <label for="book_opinion">Opinion</label>
+    <%= f.text_area :body, class:"col-xs-12 book_body", name:"book[body]", id:"book_body" %>
+    </div>
+
+  <div class="actions row">
+    <%= f.submit 'Create book', name:"commit", class:"btn btn-primary col-xs-12", data: { disable_with: "Create Book" } %>
+  </div>
+<% end %>
+
+
+</div>
