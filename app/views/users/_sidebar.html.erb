@@ -1,17 +1,14 @@
 <table class='table'>
 
-    <% if current_user.profile_image.nil? %>
-      <%= image_tag('no_image.jpg') %>
-      <% end %>
-      <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100  %>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"  %>
       <tbody><tr></tr>
       <tr>
         <th>name</th>
-        <th><%= current_user.name %></th>
+        <th><%= @user.username %></th>
       </tr>
       <tr>
         <th>introduction</th>
-        <th><%= current_user.introduction %></th>
+        <th><%= @user.introduction %></th>
       </tr>
 </tbody></table>
 
