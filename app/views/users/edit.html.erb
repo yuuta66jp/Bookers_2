@@ -3,34 +3,43 @@
   <%= render "users/header" %>
 
   <div class="container">
-<h2>User info</h2>
+    <h2>User info</h2>
 
-<%= form_for(@user) do |f| %>
+    <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+    <div id="error_explanation" >
+      <h2><%= @user.errors.count %>errors prohibited this obj from being saved:</h2>
+      <ul>
+        <%= @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :username, autofocus: true, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :username, autofocus: true, class: "form-control" %>
+    <div class="field">
+      <%= f.label :image %><br />
+      <%= f.attachment_field :profile_image, class: "user-edit-form" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :introduction%>
+      <%= f.text_field :introduction, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update User" %>
+    </div>
+
+    <% end %>
+
+
   </div>
 
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.attachment_field :profile_image, class: "user-edit-form" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :introduction%>
-    <%= f.text_field :introduction, autofocus: true, class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update User" %>
-  </div>
-
-<% end %>
-
-
-</div>
-
-<%= render "users/footer" %>
+  <%= render "users/footer" %>
 
 </div>

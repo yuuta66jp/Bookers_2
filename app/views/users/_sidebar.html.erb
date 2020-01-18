@@ -1,17 +1,17 @@
 <table class='table'>
 
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"  %>
+      <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"  %>
       <tbody><tr></tr>
       <tr>
         <th>name</th>
-        <th><%= @user.username %></th>
+        <th><%= current_user.username %></th>
       </tr>
       <tr>
         <th>introduction</th>
-        <th><%= @user.introduction %></th>
+        <th><%= current_user.introduction %></th>
       </tr>
 </tbody></table>
 
 <div class="row">
-  <%= link_to "", edit_user_path(@user) ,class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+  <%= link_to "", edit_user_path(current_user) ,class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 </div>
