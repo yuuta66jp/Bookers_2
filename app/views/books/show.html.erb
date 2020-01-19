@@ -17,10 +17,7 @@
 
 				<table class="table table-hover table-inverse">
 					<thead>
-						<tr>
-							<th></th>
-							<th colspan="3"></th>
-						</tr>
+
 					</thead>
 
 					<tbody>
@@ -29,8 +26,12 @@
 							<td><%= link_to @book.title %></td>
 							<td><%= @book.body %></td>
 							<% if @user == current_user %>
-							<td><%= link_to "edit", edit_book_path(@book) %></td>
-							<td><%= link_to "destroy", book_path(@book), method: :delete %></td>
+							<td>
+							  <a class="btn btn-success btn-sm" href="/books/<%= @book.id %>/edit">Edit</a>
+							</td>
+							<td>
+							  <a class="btn btn-danger btn-sm" rel="nofollow" data-method="delete" href="/books/<%= @book.id %>">Destroy</a>
+							</td>
 							<% end %>
 						</tr>
 					</tbody>
