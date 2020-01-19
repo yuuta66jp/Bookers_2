@@ -19,15 +19,13 @@
 					<thead>
 						<tr>
 							<th></th>
-							<th>Title</th>
-							<th>Opinion</th>
 							<th colspan="3"></th>
 						</tr>
 					</thead>
 
 					<tbody>
 						<tr>
-							<td><%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg"  %></td>
+							<td><%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: '40x40'  %></td>
 							<td><%= link_to @book.title %></td>
 							<td><%= @book.body %></td>
 							<% if @user == current_user %>
