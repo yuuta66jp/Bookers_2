@@ -1,9 +1,7 @@
 <div class="body">
 
   <%= render "users/header" %>
-
   <div class="container">
-
 
    <p id="notice"><%= flash[:notice] %></p>
 
@@ -32,7 +30,7 @@
         <tbody>
           <% @books.each do |book| %>
           <tr>
-      <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: '50x50' %></td>
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: '50x50' %></td>
 
             <td><%= link_to book.title, book_path(book.id) %>
             </td>

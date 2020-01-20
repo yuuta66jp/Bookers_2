@@ -3,7 +3,7 @@
 	<%= render "users/header" %>
 
 	<div class= "container">
-
+    <div class= "row">
     <div class="col-xs-3">
       <h2>User info</h2>
 
@@ -28,13 +28,14 @@
 					<tr>
 						<td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: '40x40'  %></td>
 						</td>
-						<td><%= user.username %></td>
-						<td><%= link_to "show", user_path(user.id) %></td>
+						<td><%= user.name %></td>
+						<td><%= link_to "Show", user_path(user.id) %></td>
 					</tr>
 					<% end %>
 				</tbody>
 			</table>
 		</div>
+	</div>
 	</div>
 
 	<%= render 'users/footer' %>
