@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:index, :show, :edit, :update]
-  resources :books, only: [:create, :show, :index, :edit, :update, :destroy]
+
+  resources :books, only: [:create, :show, :index, :edit, :update, :destroy] do
+  	resources :book_comments, only: [:create, :edit, :update, :destroy]
+  end
 
   root 'home#top'
   get 'home/about' => 'home#about'
