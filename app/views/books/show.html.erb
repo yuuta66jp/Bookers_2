@@ -36,11 +36,11 @@
 								<td>
 									<a class="btn btn-danger btn-sm" rel="nofollow" data-method="delete" href="/books/<%= @book.id %>">Destroy</a>
 								</td>
+								<% end %>
 								<td>
 									<i class="fa fa-comment-o" aria-hidden="true"></i>
 									<a href="#comments"><%= @book.book_comments.count %></a>
 								</td>
-								<% end %>
 							</tr>
 						</tbody>
 
