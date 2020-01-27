@@ -37,6 +37,21 @@
 									<a class="btn btn-danger btn-sm" rel="nofollow" data-method="delete" href="/books/<%= @book.id %>">Destroy</a>
 								</td>
 								<% end %>
+								<% if @book.favorited_by?(current_user) %>
+								<td>
+									<%= link_to book_favorites_path(@book), method: :delete do %>
+									<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+									<%= @book.favorites.count %> いいね
+									<% end %>
+								</td>
+								<% else %>
+								<td>
+									<%= link_to book_favorites_path(@book), method: :post do %>
+									<i class="fa fa-heart-o" aria-hidden="true"></i>
+									<%= @book.favorites.count %> いいね
+									<% end %>
+								</td>
+								<% end %>
 								<td>
 									<i class="fa fa-comment-o" aria-hidden="true"></i>
 									<a href="#comments"><%= @book.book_comments.count %></a>
@@ -91,6 +106,33 @@
 						</div>
 
 					</div>
+
+					<div class="col-xs-9 col-xs-offset-3">
+						<h2>いいねusers</h2>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>image</th>
+									<th>name</th>
+									<th colspan="3"></th>
+								</tr>
+							</thead>
+
+
+							<tbody>
+								<% @book.favorites.each do |favorite| %>
+								<tr>
+
+									<td><%= attachment_image_tag favorite.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: '40x40'  %></td>
+
+									<td><%= favorite.user.name %></td>
+					       	<td><%= link_to "Show", user_path(favorite.user.id) %></td
+								</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</div>
+
 
 					<%= render 'users/footer' %>
 
