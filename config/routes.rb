@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:index, :show, :edit, :update]
+  resources :relationships, only: [:create, :destroy]
 
   resources :books, only: [:create, :show, :index, :edit, :update, :destroy] do
   	resource :favorites, only: [:create, :destroy]
