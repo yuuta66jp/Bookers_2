@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   end
 
   def index
-      @users = User.all
+      method = params[:search_method]
+      word = params[:search_word]
+      @users = User.search(method,word)
       @book = Book.new
       @user = User.find(current_user.id)
   end

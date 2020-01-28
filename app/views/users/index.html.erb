@@ -12,11 +12,14 @@
 			</div>
 
 			<div class ="col-xs-9">
-				<h2>Users</h2>
 				<!-- 検索機能 -->
 				<h3>user search</h3>
-				<%= form_tag(users_path, :method => 'get' ) do %>
+				<%= form_tag(users_path, method: :get ) do %>
+				<%= select(@search_content, :search_method, [["前方一致", "forward_match"],["後方一致", "backward_match"],["完全一致", "perfect_match"],["部分一致", "partial_match"]]) %>
+				<%= text_field(@search_content, :search_word) %>
+				<%= submit_tag 'Search', name: :nil %>
 				<% end %>
+				<h2>Users</h2>
 				<table class ="table">
 					<thead>
 						<tr>
@@ -51,14 +54,14 @@
 							<% end %>
 							<% end %>
 							<% end %>
-             </td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
+</div>
 
-	<%= render 'users/footer' %>
+<%= render 'users/footer' %>
 </div>
