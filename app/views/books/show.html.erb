@@ -101,8 +101,8 @@
 
 						<div class="float-xs-right">
 							<%= f.submit 'Create comment', name:"commit", class:"btn btn-primary col-xs-3" %>
-            </div>
-							<% end %>
+						</div>
+						<% end %>
 
 					</div>
 
@@ -125,7 +125,7 @@
 									<td><%= attachment_image_tag favorite.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: '40x40'  %></td>
 
 									<td><%= favorite.user.name %></td>
-					       	<td><%= link_to "Show", user_path(favorite.user.id) %></td>
+									<td><%= link_to "Show", user_path(favorite.user.id) %></td>
 								</tr>
 								<% end %>
 							</tbody>

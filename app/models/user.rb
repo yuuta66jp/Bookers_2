@@ -17,7 +17,7 @@ class User < ApplicationRecord
   # foreign_key: 'follow_id'にてfollow_idを入り口としてrelaitionshipsテーブルにアクセスする（入り口）
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   # source: :userで出口をuser_idにする。userテーブルから自分をフォローしているuserを取ってくる
-  hsa_many :followers, through: :reverse_of_relationships, source: :user
+  has_many :followers, through: :reverse_of_relationships, source: :user
 
 
   #validation使用

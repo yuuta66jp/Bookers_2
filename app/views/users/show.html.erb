@@ -53,10 +53,56 @@
           </tr>
           <% end %>
         </tbody>
+
+      </table>
+      <h2>followings</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @user.followings.each do |user| %>
+          <tr>
+
+            <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: '40x40'  %></td>
+
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <h2>followers</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @user.followers.each do |user| %>
+          <tr>
+
+            <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size: '40x40'  %></td>
+
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>
-
+</div>
 </div>
 
 <%= render 'users/footer' %>
