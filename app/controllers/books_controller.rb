@@ -24,8 +24,10 @@ class BooksController < ApplicationController
   end
 
   def index
+      method = params[:search_method]
+      word = params[:search_word]
       @user = current_user
-      @books = Book.all
+      @books = Book.search(method,word)
       @book = Book.new
   end
 
